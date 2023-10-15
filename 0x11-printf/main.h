@@ -1,5 +1,5 @@
-#ifndef BIDEMI_H
-#define BIDEMI_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #include <stdarg.h>
