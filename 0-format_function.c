@@ -6,7 +6,7 @@
  * Return: chr_count
  */
 
-int _printf(const char *format, ...);
+int _printf(const char *format, ...)
 {
 	int chr_count = 0;
 	va_list clist;
@@ -18,7 +18,7 @@ int _printf(const char *format, ...);
 
 	while (*format)
 	{
-		if (*format != "%")
+		if (*format != '%')
 		{
 			write(1, format, 1);
 				chr_count++;
@@ -27,27 +27,27 @@ int _printf(const char *format, ...);
 		{
 			format++;
 
-			if (*format == "\0")
+			if (*format == '\0')
 				break;
 
-			if (*format == "%")
+			if (*format == '%')
 			{
 				write(1, format, 1);
 				chr_count++;
 			}
-			else if (*format == "c")
+			else if (*format == 'c')
 			{
 				char c = va_arg(clist, int);
 
 				write(1, &c, 1);
 				chr_count++;
 			}
-			else if (*format == "s")
+			else if (*format == 's')
 			{
 				char *str = va_arg(clist, char*);
 				int str_len = 0;
 
-				while (str[str_len] != "\0")
+				while (str[str_len] != '\0')
 					str_len++;
 
 				write(1, str, str_len);
