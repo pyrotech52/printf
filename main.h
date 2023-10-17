@@ -46,7 +46,7 @@ int print_s(va_list types, char buffer[], int flags, int width, int precision, i
 int print_percentage(va_list types, char buffer[], int flags, int width, int precision, int size);
 int print_d(va_list types, char buffer[], int flags, int width, int precision, int size);
 int print_base_2(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_unsigned_int(va_list types, char buffer[],int flags, int width, int precision, int size);
+int print_unsigned(va_list types, char buffer[],int flags, int width, int precision, int size);
 int print_base_8(va_list types, char buffer[], int flags, int width, int precision, int size);
 int print_base_10(va_list types, char buffer[], int flags, int width, int precision, int size);
 int print_hexa_uppercase(va_list types, char buffer[], int flags, int width, int precision, int size);
