@@ -31,7 +31,7 @@ width = get_width(format, &x, clist);
 precision = get_precision(format, &x, clist);
 size = get_size(format, &x);
 ++x;
-/**chr = handle_print(format, &x, clist, buffer, flags, width, precision, size);*/
+chr = print_types(format, &x, clist, buffer, flags, width, precision, size);
 if (chr == -1)
 return (-1);
 chr_count += chr;

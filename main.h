@@ -21,4 +21,5 @@ int print_d(va_list types, char buffer[], int width, int precision, int size, in
 int print_binary(va_list types, char buffer[], int width, int precision, int size, int flags);
 int chr_count(char x, char buffer[], int width, int precision, int size, int flags);
 int numbers(int y, int  x, char buffer[], int  width, int size, int precisions, int flags);
+int print_types(const char *fmt, int *ind, va_list clist, char buffer[], int flags, int width,int precision,int size);
 #endif
