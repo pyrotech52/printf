@@ -9,8 +9,7 @@
  * @size: sizes
  * Return:chtr_counts
  */
-int print_address(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int print_address(va_list types, char buffer[], int flags, int width, int precision, int size)
 {
 	char x = 0, p = ' ';
 	int y = buff - 2, l = 2, p_d = 1;
@@ -45,8 +44,7 @@ int print_address(va_list types, char buffer[],
 
 	y++;
 
-	return (pointerx(buffer, y, l,
-		width, flags, p, x, p_d));
+	return (pointerx(buffer, y, l, width, flags, p, x, p_d));
 }
 
 /**
@@ -59,8 +57,7 @@ int print_address(va_list types, char buffer[],
  * @size: sizes
  * Return: chr_counts
  */
-int print_noprintable(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int print_noprintable(va_list types, char buffer[], int flags, int width, int precision, int size)
 {
 	int x = 0, offset = 0;
 	char *str = va_arg(types, char *);
@@ -99,8 +96,7 @@ int print_noprintable(va_list types, char buffer[],
  * Return: Numbers of characterss printed
  */
 
-int print_inverse(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int print_inverse(va_list types, char buffer[], int flags, int width, int precision, int size)
 {
 	char *str;
 	int x, y = 0;
@@ -140,8 +136,7 @@ int print_inverse(va_list types, char buffer[],
  * @size: sizes
  * Return: Numbers of charaters printed
  */
-int print_rot13strings(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int print_rot13strings(va_list types, char buffer[], int flags, int width, int precision, int size)
 {
 	char x;
 	char *str;
