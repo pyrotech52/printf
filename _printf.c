@@ -1,54 +1,65 @@
 #include "main.h"
-void print_buffer(char buffer[], int *buffers);
+
+void print_buffer(char buffer[], int *index_buffer);
+
 /**
  * _printf - my custom printf
- * @format: parameter
- * Return: the number of characters printed
-*/
+ * @format: formatted str
+ * Return: chars
+ */
 int _printf(const char *format, ...)
 {
-int x, chr = 0, chr_count = 0;
-int flags, width, precision, size, buffers = 0;
-va_list clist;
-char buffer[buff];
-if (format == NULL)
-return (-1);
-va_start(clist, format);
-for (x = 0; format && format[x] != '\0'; x++)
-{
-if (format[x] != '%')
-{
-buffer[buffers++] = format[x];
-if (buffers == buff)
-print_buffer(buffer, &buffers);
-chr_count++;
+	int x, p = 0, p_c = 0;
+	int flags, width, precision, size, index_buffer = 0;
+	va_list list;
+	char buffer[buff];
+
+	if (format == NULL)
+		return (-1);
+
+	va_start(list, format);
+
+	for (x = 0; format && format[x] != '\0'; x++)
+	{
+		if (format[x] != '%')
+		{
+			buffer[index_buffer++] = format[x];
+			if (index_buffer == buff)
+				print_buffer(buffer, &index_buffer);
+			p_c++;
+		}
+		else
+		{
+			print_buffer(buffer, &index_buffer);
+			flags = get_flags(format, &x);
+			width = get_width(format, &x, list);
+			precision = get_precision(format, &x, list);
+			size = get_size(format, &x);
+			++x;
+			p = handle_print(format, &x, list, buffer,
+				flags, width, precision, size);
+			if (p == -1)
+				return (-1);
+			p_c += p;
+		}
+	}
+
+	print_buffer(buffer, &index_buffer);
+
+	va_end(list);
+
+	return (p_c);
 }
-else
-{
-print_buffer(buffer, &buffers);
-flags = get_flags(format, &x);
-width = get_width(format, &x, clist);
-precision = get_precision(format, &x, clist);
-size = get_size(format, &x);
-++x;
-chr = print_types(format, &x, clist, buffer, flags, width, precision, size);
-if (chr == -1)
-return (-1);
-chr_count += chr;
-}
-}
-print_buffer(buffer, &buffers);
-va_end(clist);
-return (chr_count);
-}
+
 /**
- *print_buffer - view buffer
- * @buffer: parameter
- * @buffers: parameter
-*/
-void print_buffer(char buffer[], int *buffers)
+ * print_buffer - shows the buffer
+ * @buffer: array
+ * @index_buffer:index
+ */
+void print_buffer(char buffer[], int *index_buffer)
 {
-if (*buffers > 0)
-write(1, &buffer[0], *buffers);
-*buffers = 0;
+	if (*index_buffer > 0)
+		write(1, &buffer[0], *index_buffer);
+
+	*index_buffer = 0;
 }

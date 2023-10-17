@@ -73,7 +73,7 @@ int number(int is_negative, int ind, char buffer[],
 }
 
 /**
- * numx - write a number 
+ * numx - write a number
  * @ind: index
  * @buffer: array
  * @flags: signals for function
@@ -152,7 +152,7 @@ int unsignd(int is_negative, int ind,
 	UNUSED(size);
 
 	if (precision == 0 && ind == buff - 2 && buffer[ind] == '0')
-		return (0); 
+		return (0);
 	if (precision > 0 && precision < l)
 		p = ' ';
 
@@ -172,7 +172,7 @@ int unsignd(int is_negative, int ind,
 
 		buffer[x] = '\0';
 
-		if (flags & NEGATIVE)	
+		if (flags & NEGATIVE)
 {
 			return (write(1, &buffer[ind], l) + write(1, &buffer[0], x));
 		}
@@ -213,7 +213,7 @@ int pointerx(char buffer[], int ind, int length,
 			buffer[--ind] = '0';
 			if (z)
 				buffer[--ind] = z;
-			return (write(1, &buffer[ind], length) + write(1, &buffer[3],  - 3));
+			return (write(1, &buffer[ind], length) + write(1, &buffer[3], x - 3));
 		}
 		else if (!(flags & NEGATIVE) && p == ' ')
 		{
