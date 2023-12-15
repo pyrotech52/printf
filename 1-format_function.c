@@ -10,7 +10,8 @@
  * @size: sizes
  * Return: nos
  */
-int print_c(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_c(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	char c = va_arg(types, int);
 
@@ -26,7 +27,8 @@ int print_c(va_list types, char buffer[], int flags, int width, int precision, i
  * @size: sizes
  * Return: nos
  */
-int print_s(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_s(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	int l = 0, x;
 	char *str = va_arg(types, char *);
@@ -79,7 +81,8 @@ int print_s(va_list types, char buffer[], int flags, int width, int precision, i
  * @size: sizes
  * Return: nos
  */
-int print_percentage(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_percentage(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	UNUSED(types);
 	UNUSED(buffer);
@@ -100,7 +103,8 @@ int print_percentage(va_list types, char buffer[], int flags, int width, int pre
  * @size: sizes
  * Return: nos
  */
-int print_d(va_list types, char buffer[], int flags, int width, int precision, int size)
+int print_d(va_list types, char buffer[],
+		int flags, int width, int precision, int size)
 {
 	int x = buff - 2;
 	int is_negative = 0;
